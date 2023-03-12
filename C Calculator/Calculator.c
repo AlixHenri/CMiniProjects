@@ -11,36 +11,39 @@ int main(){
     "\n[+] Sum"
     "\n[-] Subtraction"
     "\n[/] Division"
-    "\n[*] Multiplication");
+    "\n[*] Multiplication"
+    "\n>");
     scanf("%c", &operator);
 
-    printf("\nEnter the first number");
+    printf("\nEnter the first number"
+    "\n>");
     scanf("%lf", &num1);
 
-    printf("\nEnter the second number");
+    printf("Enter the second number"
+    "\n>");
     scanf("%lf", &num2);
 
-    if (operator == '+'){
+    switch (operator)
+    {
+    case '+':
         double result = num1 + num2;
-        printf("%.1lf + %.1lf = %.1lf", num1, num2, result);
+        printf("\n%.1lf + %.1lf = %.1lf", num1, num2, result);
+        break;
+    case '-':
+        result = num1 - num2;
+        printf("\n%.1lf - %.1lf = %.1lf", num1, num2, result);
+        break;
+    case '/':
+        result = num1 / num2;
+        printf("\n%.1lf / %.1lf = %.1lf", num1, num2, result);
+        break;
+    case '*':
+        result = num1 * num2;
+        printf("\n%.1lf * %.1lf = %.1lf", num1, num2, result);
+        break;
+    default:
+        printf("\nError: Invalid option selected or invalid format inserted as input");
     }
-    else if(operator == '-'){
-        double result = num1 - num2;
-        printf("%.1lf - %.1lf = %.1lf", num1, num2, result);
-    }else if(operator == '/'){
-        if(num1 == 0 || num2 == 0){
-            printf("Error: 0 can't be divided or divide a number");
-        }else{
-            double result = num1 / num2;
-            printf("%.1lf - %.1lf = %.1lf", num1, num2, result);
-        }
-
-    }else if(operator == '*'){
-        double result = num1 * num2;
-        printf("%.1lf - %.1lf = %.1lf", num1, num2, result);
-    }else{
-        printf("Error: invalid operator selected or invalid number inserted. Try Again.");
-    }
-
+    
     return 0;
 }
